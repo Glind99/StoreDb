@@ -1,0 +1,32 @@
+﻿@using System.Globalization
+
+
+<h4>Please select which month you want to see leave information about</h4>
+<hr />
+<div class="text-center">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ShowVacationResults">
+                <div class="form-group">
+                    <label for="MonthSelect" class="control-label">Select Month</label>
+                    <select name="MonthSelect" class="form-control">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            var month = new DateTime(DateTime.Now.Year, i, 1).ToString("MMMM", CultureInfo.InvariantCulture);
+                                <option value="@i">@month</option>
+                        }
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
